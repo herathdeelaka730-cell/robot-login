@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A playful animated robot login experience">
+  <meta name="theme-color" content="#060713">
+  <title>Orbit — Robot Login</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true">
+    <div class="aurora blue"></div><div class="aurora coral"></div><div class="aurora violet"></div>
+    <div class="grid"></div><div class="stars" id="stars"></div>
+  </div>
+
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Orbit home"><span class="brand-mark" aria-hidden="true"><i></i></span>ORBIT</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="active" href="#">Home</a><a href="#features">Features</a><a href="#security">Security</a><a href="#support">Support</a>
+      </nav>
+      <div class="header-actions">
+        <button class="language" type="button" data-toast="Language selector is ready to connect.">EN⌄</button>
+        <a class="signup" href="#create">Create account</a>
+      </div>
+    </header>
+
+    <main class="login-layout">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow"><span></span>Your digital co-pilot is online</div>
+          <h1 id="hero-title">Access, with a little <em>magic.</em></h1>
+          <p>Say hello to Byte. Your cheerful companion for a safer, smoother sign-in.</p>
+        </div>
+
+        <div class="robot-scene" aria-label="Byte the friendly login robot">
+          <div class="orbit orbit-one" aria-hidden="true"><i></i></div><div class="orbit orbit-two" aria-hidden="true"><i></i></div>
+          <div class="robot-halo" aria-hidden="true"></div>
+          <div class="speech" role="status" aria-live="polite"><b aria-hidden="true">✦</b><span id="robotMessage">Hi! I’ll keep an eye on things.</span></div>
+          <div class="robot-wrap">
+            <img class="robot-image" src="assets/byte-robot.png" alt="Byte, a friendly white robot with glowing blue eyes">
+            <div class="robot-shine" aria-hidden="true"></div>
+            <div class="emotion success-emotion" aria-hidden="true">
+              <i class="heart h1">♥</i><i class="heart h2">♥</i><i class="heart h3">♥</i>
+              <i class="spark s1">✦</i><i class="spark s2">✦</i><i class="spark s3">✦</i>
+            </div>
+            <div class="emotion failure-emotion" aria-hidden="true">
+              <i class="tear t1"></i><i class="tear t2"></i><i class="rain r1"></i><i class="rain r2"></i><i class="rain r3"></i>
+            </div>
+          </div>
+          <div class="robot-shadow" aria-hidden="true"></div>
+        </div>
+        <div class="trust-row"><span><i>✓</i> End-to-end secure</span><span><i>✓</i> Human-friendly</span></div>
+      </section>
+
+      <section class="login-card" id="loginCard" aria-labelledby="login-title">
+        <div class="card-glow" aria-hidden="true"></div>
+        <div class="status-orb" aria-hidden="true"><span class="idle-icon">◇</span><span class="success-icon">✓</span><span class="failure-icon">×</span></div>
+        <div class="card-heading">
+          <span class="card-kicker" id="cardKicker">SECURE ACCESS</span>
+          <h2 id="login-title">Welcome back</h2>
+          <p id="loginSubtitle">Enter your details and let’s get you back to orbit.</p>
+        </div>
+
+        <form id="loginForm" novalidate>
+          <div class="field" id="emailField">
+            <label for="email">Email address</label>
+            <div class="input-shell">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v11H4zM4.5 7l7.5 6 7.5-6"/></svg>
+              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" aria-describedby="emailError" required>
+              <span class="field-check" aria-hidden="true">✓</span>
+            </div>
+            <span class="field-error" id="emailError"></span>
+          </div>
+
+          <div class="field" id="passwordField">
+            <div class="label-row"><label for="password">Password</label><button class="text-button" type="button" data-toast="Password recovery is ready to connect.">Forgot password?</button></div>
+            <div class="input-shell">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8.5 10V7.5a3.5 3.5 0 0 1 7 0V10M12 14v2"/></svg>
+              <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" aria-describedby="passwordError" required>
+              <button class="password-toggle" id="passwordToggle" type="button" aria-label="Show password" aria-pressed="false"><span class="eye-open">◉</span><span class="eye-closed">—</span></button>
+            </div>
+            <span class="field-error" id="passwordError"></span>
+          </div>
+
+          <label class="remember"><input type="checkbox" name="remember"><span class="checkbox">✓</span>Keep me signed in</label>
+          <button class="submit-button" id="submitButton" type="submit">
+            <span class="button-label">Sign in to Orbit</span><span class="loader" aria-hidden="true"></span><span class="arrow" aria-hidden="true">→</span>
+          </button>
+        </form>
+
+        <div class="demo-box">
+          <div><span>TRY THE DEMO</span><p><strong>admin@robot.dev</strong> · robot123</p></div>
+          <button id="demoFill" type="button">Fill for me</button>
+        </div>
+
+        <div class="divider"><span>or continue with</span></div>
+        <div class="social-row">
+          <button type="button" aria-label="Continue with Google" data-provider="Google"><svg viewBox="0 0 24 24"><path fill="#EA4335" d="M12 10.2v4h5.6c-.7 2.4-2.7 3.7-5.6 3.7A5.9 5.9 0 1 1 12 6a5.4 5.4 0 0 1 3.8 1.5l2.8-2.7A9.5 9.5 0 0 0 12 2.2a9.8 9.8 0 1 0 0 19.6c5.7 0 9.5-4 9.5-9.7a9 9 0 0 0-.2-1.9H12Z"/></svg><span>Google</span></button>
+          <button type="button" aria-label="Continue with Apple" data-provider="Apple"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M16.8 12.7c0-2.2 1.8-3.3 1.9-3.4a4.2 4.2 0 0 0-3.3-1.8c-1.4-.1-2.7.8-3.4.8-.7 0-1.7-.8-2.9-.8a4.5 4.5 0 0 0-3.8 2.3c-1.6 2.8-.4 6.9 1.2 9.2.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3.1-.7 1.4 0 1.9.7 3.1.7 1.3 0 2.1-1.1 2.8-2.2a10 10 0 0 0 1.3-2.7 4 4 0 0 1-2.9-3.7ZM14.5 6c.6-.8 1-1.9.9-3-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.9 1.1 0 2.2-.5 2.8-1.3Z"/></svg><span>Apple</span></button>
+        </div>
+        <p class="create-account" id="create">New around here? <button type="button" data-toast="Account creation is ready to connect.">Create an account</button></p>
+        <p class="secure-note" id="security"><span>◆</span> Protected with 256-bit encryption</p>
+      </section>
+    </main>
+    <footer class="site-footer"><span>© <span id="year"></span> Orbit Systems</span><i></i><a id="support" href="mailto:hello@example.com">Need help?</a></footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"><b>✦</b><span id="toastText"></span></div>
+  <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+</body>
+</html>
